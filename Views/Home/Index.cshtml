@@ -1,0 +1,37 @@
+﻿@model List<SeriesViewModel>
+
+@{
+    ViewData["Title"] = "Library";
+}
+
+<h1>Library</h1>
+
+@foreach (var series in Model)
+{
+    <h2>@series.SeriesName</h2>
+    @foreach (var season in series.Seasons)
+    {
+        <h3>@season.SeasonName</h3>
+        <ul>
+            @foreach (var ep in season.Episodes)
+            {
+                <li>
+                    <a href="@Url.Action("Player", "Anime", new { filePath = ep.FilePath/* , subtitlePath = ep.SubtitlePath  */})">
+                        Episode @ep.EpisodeNumber: @ep.Title
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+}
+
+
+@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@

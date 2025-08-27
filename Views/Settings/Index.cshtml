@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Settings";
+    var savedDate = ViewData["SavedValue"];
+}
+
+<h2>Save Filepath</h2>
+
+<form asp-action="Save" method="post">
+    <input type="text" name="inputValue" value="@savedDate" />
+    <button type="submit">Save</button>
+</form>
+
+<p>Current saved filepath: <strong>@savedDate</strong></p>
